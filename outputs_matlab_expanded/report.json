@@ -1,0 +1,354 @@
+{
+  "data": {
+    "path": "../wine/wine_expanded.data",
+    "nSamples": 1258,
+    "nFeatures": 13
+  },
+  "featureSelection": {
+    "allMethods": [
+      {
+        "method": "RFE",
+        "bestScore": 0.94197138314785378,
+        "selectedDim": 12,
+        "selectedIdx": [
+          7,
+          1,
+          10,
+          13,
+          6,
+          12,
+          2,
+          11,
+          9,
+          4,
+          8,
+          3
+        ]
+      },
+      {
+        "method": "PCA",
+        "bestScore": 0.93720190779014323,
+        "selectedDim": 13,
+        "selectedIdx": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "method": "ModelImportance",
+        "bestScore": 0.9395866454689985,
+        "selectedDim": 11,
+        "selectedIdx": [
+          2,
+          7,
+          1,
+          6,
+          10,
+          13,
+          9,
+          11,
+          5,
+          12,
+          8
+        ]
+      }
+    ],
+    "bestMethod": {
+      "method": "RFE",
+      "bestScore": 0.94197138314785378,
+      "selectedDim": 12,
+      "selectedIdx": [
+        7,
+        1,
+        10,
+        13,
+        6,
+        12,
+        2,
+        11,
+        9,
+        4,
+        8,
+        3
+      ]
+    }
+  },
+  "kernelSearch": {
+    "allKernels": [
+      {
+        "kernel": "linear",
+        "bestScore": 0.940381558028617,
+        "bestParams": {
+          "C": 1
+        }
+      },
+      {
+        "kernel": "rbf",
+        "bestScore": 0.96979332273449925,
+        "bestParams": {
+          "C": 1000,
+          "gamma": 0.01
+        }
+      },
+      {
+        "kernel": "sigmoid",
+        "bestScore": 0.96661367249602548,
+        "bestParams": {
+          "C": 0.001,
+          "gamma": 1,
+          "coef0": 2
+        }
+      }
+    ],
+    "bestKernel": {
+      "kernel": "rbf",
+      "bestScore": 0.96979332273449925,
+      "bestParams": {
+        "C": 1000,
+        "gamma": 0.01
+      }
+    }
+  },
+  "finalEvaluation": {
+    "strategy": "Stratified10Fold",
+    "accuracy": 0.96025437201907793,
+    "confusionMatrix": [
+      [
+        58,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        65,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        42,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        119,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        103,
+        0,
+        0,
+        17,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        19,
+        0,
+        0,
+        101,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        120,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        120
+      ]
+    ]
+  },
+  "labelMap": [
+    {
+      "label": 1,
+      "name": "巴罗洛"
+    },
+    {
+      "label": 2,
+      "name": "格里尼奥利诺"
+    },
+    {
+      "label": 3,
+      "name": "巴贝拉"
+    },
+    {
+      "label": 4,
+      "name": "桑娇维塞"
+    },
+    {
+      "label": 5,
+      "name": "内比奥罗"
+    },
+    {
+      "label": 6,
+      "name": "巴贝拉"
+    },
+    {
+      "label": 7,
+      "name": "蒙特布查诺"
+    },
+    {
+      "label": 8,
+      "name": "阿利亚尼科"
+    },
+    {
+      "label": 9,
+      "name": "普里米蒂沃"
+    },
+    {
+      "label": 10,
+      "name": "黑达沃拉"
+    },
+    {
+      "label": 11,
+      "name": "科维纳"
+    },
+    {
+      "label": 12,
+      "name": "多尔切托"
+    }
+  ],
+  "artifacts": {
+    "model": "model.mat",
+    "featureBar": "feature_method_compare.png",
+    "kernelBar": "kernel_compare.png",
+    "confusionMatrix": "confusion_matrix.png",
+    "classExamples": "class_examples.csv"
+  }
+}
