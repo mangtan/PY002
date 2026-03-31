@@ -158,24 +158,22 @@ if label == 1
 elseif label == 2
     name = "格里尼奥利诺";
 elseif label == 3
-    name = "巴贝拉";
-elseif label == 4
     name = "桑娇维塞";
-elseif label == 5
+elseif label == 4
     name = "内比奥罗";
-elseif label == 6
+elseif label == 5
     name = "巴贝拉";
-elseif label == 7
+elseif label == 6
     name = "蒙特布查诺";
-elseif label == 8
+elseif label == 7
     name = "阿利亚尼科";
-elseif label == 9
+elseif label == 8
     name = "普里米蒂沃";
-elseif label == 10
+elseif label == 9
     name = "黑达沃拉";
-elseif label == 11
+elseif label == 10
     name = "科维纳";
-elseif label == 12
+elseif label == 11
     name = "多尔切托";
 else
     name = sprintf("第%d类", label);

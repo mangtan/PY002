@@ -318,7 +318,7 @@ app.classExamples = classExamples;
 setappdata(fig, "app", app);
 
 if numel(labelVals) == 3
-    appendLog(fig, "说明：UCI 原始数据只有 class 1/2/3；当前名称使用常见文献命名（巴罗洛/格里尼奥利诺/巴贝拉）。");
+    appendLog(fig, "说明：当前仅加载到 3 个类别标签。");
 end
 if ~isempty(classExamples)
     appendLog(fig, sprintf("已加载 %d 个类别示例，可在“示例类别”中切换后点“填充示例”。", numel(classExamples)));
@@ -457,24 +457,22 @@ if label == 1
 elseif label == 2
     name = "格里尼奥利诺";
 elseif label == 3
-    name = "巴贝拉";
-elseif label == 4
     name = "桑娇维塞";
-elseif label == 5
+elseif label == 4
     name = "内比奥罗";
-elseif label == 6
+elseif label == 5
     name = "巴贝拉";
-elseif label == 7
+elseif label == 6
     name = "蒙特布查诺";
-elseif label == 8
+elseif label == 7
     name = "阿利亚尼科";
-elseif label == 9
+elseif label == 8
     name = "普里米蒂沃";
-elseif label == 10
+elseif label == 9
     name = "黑达沃拉";
-elseif label == 11
+elseif label == 10
     name = "科维纳";
-elseif label == 12
+elseif label == 11
     name = "多尔切托";
 else
     name = sprintf("第%d类", label);

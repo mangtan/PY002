@@ -16,14 +16,14 @@ def parse_args():
     parser.add_argument(
         "--model",
         type=Path,
-        default=Path("project/outputs/model.joblib"),
+        default=Path("outputs/model.joblib"),
         help="训练好的模型路径",
     )
     parser.add_argument(
         "--input-csv",
         type=Path,
         default=None,
-        help="输入csv路径（每行13列特征，不含标签）",
+        help="输入csv路径（每行13列特征，或14列含首列标签）",
     )
     parser.add_argument(
         "--sample",
@@ -34,7 +34,7 @@ def parse_args():
     parser.add_argument(
         "--output-csv",
         type=Path,
-        default=Path("project/outputs/predict_result.csv"),
+        default=Path("outputs/predict_result.csv"),
         help="批量预测输出路径",
     )
     return parser.parse_args()
@@ -64,10 +64,12 @@ def main():
         return
 
     df = pd.read_csv(args.input_csv, header=None)
-    if df.shape[1] != 13:
-        raise ValueError("输入CSV必须是13列特征，不含标签列")
-
-    x = df.values.astype(float)
+    if df.shape[1] == 13:
+        x = df.values.astype(float)
+    elif df.shape[1] == 14:
+        x = df.iloc[:, 1:].values.astype(float)
+    else:
+        raise ValueError("输入CSV必须是13列特征，或14列（首列标签+13特征）")
     pred = model.predict(x)
     prob = model.predict_proba(x)
     conf = np.max(prob, axis=1)
@@ -83,4 +85,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

@@ -1,33 +1,31 @@
 {
   "data": {
-    "path": "../wine/wine_expanded.data",
-    "nSamples": 1258,
+    "path": "/Users/maotao/Documents/Order/26.3/PY002/project/wine/wine_expanded.data",
+    "nSamples": 1210,
     "nFeatures": 13
   },
   "featureSelection": {
     "allMethods": [
       {
         "method": "RFE",
-        "bestScore": 0.94197138314785378,
-        "selectedDim": 12,
+        "bestScore": 0.94876033057851261,
+        "selectedDim": 10,
         "selectedIdx": [
-          7,
           1,
+          7,
           10,
           13,
           6,
-          12,
           2,
+          12,
           11,
           9,
-          4,
-          8,
-          3
+          4
         ]
       },
       {
         "method": "PCA",
-        "bestScore": 0.93720190779014323,
+        "bestScore": 0.94628099173553737,
         "selectedDim": 13,
         "selectedIdx": [
           1,
@@ -47,8 +45,8 @@
       },
       {
         "method": "ModelImportance",
-        "bestScore": 0.9395866454689985,
-        "selectedDim": 11,
+        "bestScore": 0.94710743801652908,
+        "selectedDim": 8,
         "selectedIdx": [
           2,
           7,
@@ -57,30 +55,25 @@
           10,
           13,
           9,
-          11,
-          5,
-          12,
-          8
+          12
         ]
       }
     ],
     "bestMethod": {
       "method": "RFE",
-      "bestScore": 0.94197138314785378,
-      "selectedDim": 12,
+      "bestScore": 0.94876033057851261,
+      "selectedDim": 10,
       "selectedIdx": [
-        7,
         1,
+        7,
         10,
         13,
         6,
-        12,
         2,
+        12,
         11,
         9,
-        4,
-        8,
-        3
+        4
       ]
     }
   },
@@ -88,90 +81,48 @@
     "allKernels": [
       {
         "kernel": "linear",
-        "bestScore": 0.940381558028617,
+        "bestScore": 0.93966942148760346,
         "bestParams": {
-          "C": 1
+          "C": 10
         }
       },
       {
         "kernel": "rbf",
-        "bestScore": 0.96979332273449925,
+        "bestScore": 0.9677685950413224,
         "bestParams": {
-          "C": 1000,
-          "gamma": 0.01
+          "C": 1,
+          "gamma": 0.1
         }
       },
       {
         "kernel": "sigmoid",
-        "bestScore": 0.96661367249602548,
+        "bestScore": 0.968595041322314,
         "bestParams": {
           "C": 0.001,
-          "gamma": 1,
-          "coef0": 2
+          "gamma": 0.031622776601683791,
+          "coef0": 0.5
         }
       }
     ],
     "bestKernel": {
-      "kernel": "rbf",
-      "bestScore": 0.96979332273449925,
+      "kernel": "sigmoid",
+      "bestScore": 0.968595041322314,
       "bestParams": {
-        "C": 1000,
-        "gamma": 0.01
+        "C": 0.001,
+        "gamma": 0.031622776601683791,
+        "coef0": 0.5
       }
     }
   },
   "finalEvaluation": {
     "strategy": "Stratified10Fold",
-    "accuracy": 0.96025437201907793,
+    "accuracy": 0.96033057851239667,
     "confusionMatrix": [
       [
-        58,
+        56,
         1,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      [
         1,
-        65,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        2
-      ],
-      [
-        0,
-        1,
-        42,
-        0,
-        0,
-        1,
-        1,
-        0,
-        0,
-        3,
-        0,
-        0
-      ],
-      [
-        0,
-        0,
-        0,
-        119,
-        0,
         0,
         0,
         0,
@@ -181,7 +132,32 @@
         1
       ],
       [
+        1,
+        59,
+        1,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7,
+        3
+      ],
+      [
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
         0,
         0,
         0,
@@ -199,7 +175,6 @@
         0,
         0,
         0,
-        0,
         120,
         0,
         0,
@@ -214,16 +189,14 @@
         0,
         0,
         0,
+        102,
         0,
-        103,
         0,
-        0,
-        17,
+        18,
         0,
         0
       ],
       [
-        0,
         0,
         0,
         0,
@@ -237,7 +210,6 @@
         0
       ],
       [
-        0,
         0,
         0,
         0,
@@ -256,16 +228,14 @@
         0,
         0,
         0,
+        15,
         0,
-        19,
         0,
-        0,
-        101,
+        105,
         0,
         0
       ],
       [
-        0,
         0,
         0,
         0,
@@ -279,7 +249,6 @@
         0
       ],
       [
-        0,
         0,
         0,
         0,
@@ -305,50 +274,46 @@
     },
     {
       "label": 3,
-      "name": "巴贝拉"
-    },
-    {
-      "label": 4,
       "name": "桑娇维塞"
     },
     {
-      "label": 5,
+      "label": 4,
       "name": "内比奥罗"
     },
     {
-      "label": 6,
+      "label": 5,
       "name": "巴贝拉"
     },
     {
-      "label": 7,
+      "label": 6,
       "name": "蒙特布查诺"
     },
     {
-      "label": 8,
+      "label": 7,
       "name": "阿利亚尼科"
     },
     {
-      "label": 9,
+      "label": 8,
       "name": "普里米蒂沃"
     },
     {
-      "label": 10,
+      "label": 9,
       "name": "黑达沃拉"
     },
     {
-      "label": 11,
+      "label": 10,
       "name": "科维纳"
     },
     {
-      "label": 12,
+      "label": 11,
       "name": "多尔切托"
     }
   ],
   "artifacts": {
-    "model": "model.mat",
-    "featureBar": "feature_method_compare.png",
-    "kernelBar": "kernel_compare.png",
-    "confusionMatrix": "confusion_matrix.png",
-    "classExamples": "class_examples.csv"
+    "model": "/Users/maotao/Documents/Order/26.3/PY002/project/outputs_matlab_expanded/model.mat",
+    "featureBar": "/Users/maotao/Documents/Order/26.3/PY002/project/outputs_matlab_expanded/feature_method_compare.png",
+    "kernelBar": "/Users/maotao/Documents/Order/26.3/PY002/project/outputs_matlab_expanded/kernel_compare.png",
+    "confusionMatrix": "/Users/maotao/Documents/Order/26.3/PY002/project/outputs_matlab_expanded/confusion_matrix.png",
+    "classExamples": "/Users/maotao/Documents/Order/26.3/PY002/project/outputs_matlab_expanded/class_examples.csv"
   }
 }

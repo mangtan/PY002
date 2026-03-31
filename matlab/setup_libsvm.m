@@ -1,7 +1,7 @@
 function ok = setup_libsvm()
 % 一键配置 libsvm (MATLAB)
 % 用法：
-%   addpath('<project>/project/matlab');
+%   addpath('<repo>/matlab');
 %   ok = setup_libsvm();
 
 ok = false;

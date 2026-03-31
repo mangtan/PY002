@@ -36,25 +36,25 @@ def parse_args():
     parser.add_argument(
         "--input",
         type=Path,
-        default=Path("project/wine/wine.data"),
+        default=Path("wine/wine.data"),
         help="Original UCI wine.data path",
     )
     parser.add_argument(
         "--output-data",
         type=Path,
-        default=Path("project/wine/wine_expanded.data"),
+        default=Path("wine/wine_expanded.data"),
         help="Expanded no-header data path",
     )
     parser.add_argument(
         "--output-meta",
         type=Path,
-        default=Path("project/wine/wine_expanded_with_meta.csv"),
+        default=Path("wine/wine_expanded_with_meta.csv"),
         help="Expanded data with metadata columns",
     )
     parser.add_argument(
         "--output-map",
         type=Path,
-        default=Path("project/wine/label_map.json"),
+        default=Path("wine/label_map.json"),
         help="Label map json path",
     )
     parser.add_argument(
@@ -94,63 +94,63 @@ def build_variety_specs():
     """
     return [
         {
-            "name": "Sangiovese",
+            "name": "桑娇维塞",
             "base": 2,
             "blend": (3, 0.25),
             "shift_z": {0: 0.25, 1: 0.10, 6: -0.20, 9: 0.15, 10: 0.10},
             "scale": 0.85,
         },
         {
-            "name": "Nebbiolo",
+            "name": "内比奥罗",
             "base": 1,
             "blend": (2, 0.20),
             "shift_z": {0: 0.35, 5: 0.45, 6: 0.35, 8: 0.40, 9: -0.10, 10: -0.05},
             "scale": 0.75,
         },
         {
-            "name": "Barbera",
+            "name": "巴贝拉",
             "base": 3,
             "blend": (2, 0.20),
             "shift_z": {0: -0.15, 1: 0.25, 5: -0.35, 6: -0.35, 9: 0.40, 10: -0.15},
             "scale": 0.90,
         },
         {
-            "name": "Montepulciano",
+            "name": "蒙特布查诺",
             "base": 3,
             "blend": (1, 0.15),
             "shift_z": {0: 0.20, 1: 0.05, 6: -0.10, 9: 0.35, 12: 0.20},
             "scale": 0.85,
         },
         {
-            "name": "Aglianico",
+            "name": "阿利亚尼科",
             "base": 1,
             "blend": (3, 0.20),
             "shift_z": {0: 0.45, 1: 0.20, 5: 0.25, 8: 0.25, 9: 0.45, 12: 0.35},
             "scale": 0.80,
         },
         {
-            "name": "Primitivo",
+            "name": "普里米蒂沃",
             "base": 1,
             "blend": (3, 0.15),
             "shift_z": {0: 0.55, 1: -0.10, 3: -0.20, 9: 0.50, 10: -0.25, 12: 0.40},
             "scale": 0.80,
         },
         {
-            "name": "Nero dAvola",
+            "name": "黑达沃拉",
             "base": 3,
             "blend": (1, 0.10),
             "shift_z": {0: 0.30, 1: 0.10, 6: 0.10, 9: 0.45, 12: 0.25},
             "scale": 0.85,
         },
         {
-            "name": "Corvina",
+            "name": "科维纳",
             "base": 2,
             "blend": (3, 0.15),
             "shift_z": {0: -0.20, 1: 0.20, 5: -0.25, 6: -0.20, 9: -0.10, 12: -0.20},
             "scale": 0.90,
         },
         {
-            "name": "Dolcetto",
+            "name": "多尔切托",
             "base": 2,
             "blend": (1, 0.20),
             "shift_z": {0: 0.15, 1: -0.15, 5: 0.05, 6: -0.10, 9: 0.10, 12: 0.10},
@@ -178,26 +178,31 @@ def main():
     specs = build_variety_specs()
 
     records = []
+    base_name_map = {
+        1: "巴罗洛",
+        2: "格里尼奥利诺",
+    }
     # original samples
     for i in range(len(raw)):
         row = raw.iloc[i].to_list()
         label = int(row[0])
+        if label == 3:
+            continue
         feat = [float(v) for v in row[1:]]
         records.append(
             {
                 "label": label,
-                "variety": f"UCI_Class_{label}",
+                "variety": base_name_map.get(label, f"第{label}类"),
                 "source": "original",
                 "features": feat,
             }
         )
 
-    # synthetic classes start from label 4
-    next_label = 4
+    # synthetic classes start from label 3 (final labels are continuous: 1..11)
+    next_label = 3
     label_map = {
-        1: "UCI_Class_1",
-        2: "UCI_Class_2",
-        3: "UCI_Class_3",
+        1: "巴罗洛",
+        2: "格里尼奥利诺",
     }
 
     for spec in specs:

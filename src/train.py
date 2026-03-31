@@ -53,13 +53,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--data",
         type=Path,
-        default=Path("project/wine/wine.data"),
+        default=Path("wine/wine.data"),
         help="UCI Wine 数据路径（csv，无表头）",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("project/outputs"),
+        default=Path("outputs"),
         help="输出目录",
     )
     return parser.parse_args()
